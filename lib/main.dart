@@ -145,7 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
       dataLabelSettings: const DataLabelSettings(
           isVisible: true,
           textStyle: TextStyle(
-              fontSize: 12, color: Colors.black, fontWeight: FontWeight.w600)),
+              fontSize: 12, color: Colors.white, fontWeight: FontWeight.w600)),
     );
   }
 
