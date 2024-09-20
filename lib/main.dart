@@ -139,7 +139,7 @@ class _MyHomePageState extends State<MyHomePage> {
       explodeAll: true,
       explodeOffset: '2%',
       dataLabelSettings: const DataLabelSettings(
-          isVisible: false,
+          isVisible: true,
           textStyle: TextStyle(
               fontSize: 12, color: Colors.black, fontWeight: FontWeight.w600)),
     );
