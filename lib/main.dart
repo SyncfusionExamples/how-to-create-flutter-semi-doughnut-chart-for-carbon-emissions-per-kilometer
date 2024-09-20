@@ -41,18 +41,14 @@ class _MyHomePageState extends State<MyHomePage> {
         titleTextStyle: const TextStyle(fontSize: 18, color: Colors.black),
       ),
       body: Center(
-        child: _buildDoughnutChart(),
+        /// Builds the entire doughnut chart
+        child: SfCircularChart(
+          annotations: _buildChartAnnotations(),
+          series: <CircularSeries>[
+            _buildDoughnutSeries(),
+          ],
+        ),
       ),
-    );
-  }
-
-  /// Builds the entire doughnut chart
-  Widget _buildDoughnutChart() {
-    return SfCircularChart(
-      annotations: _buildChartAnnotations(),
-      series: <CircularSeries>[
-        _buildDoughnutSeries(),
-      ],
     );
   }
 
@@ -60,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
   List<CircularChartAnnotation> _buildChartAnnotations() {
     return <CircularChartAnnotation>[
       _buildIconAnnotation(-6, Icons.emoji_transportation_outlined,
-          const Color.fromRGBO(255, 189, 57, 1)),
+          const Color.fromARGB(255, 244, 232, 1)),
       _buildIconAnnotation(-85, Icons.agriculture_outlined,
           const Color.fromARGB(255, 28, 178, 1)),
       _buildIconAnnotation(
@@ -68,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
       _buildIconAnnotation(-142, Icons.precision_manufacturing_outlined,
           const Color.fromARGB(255, 199, 3, 163)),
       _buildIconAnnotation(-167, Icons.construction_outlined,
-          const Color.fromARGB(255, 19, 6, 202)),
+          const Color.fromARGB(255, 231, 139, 1)),
       _buildTextAnnotation()
     ];
   }
@@ -143,20 +139,20 @@ class _MyHomePageState extends State<MyHomePage> {
       explodeAll: true,
       explodeOffset: '2%',
       dataLabelSettings: const DataLabelSettings(
-          isVisible: true,
+          isVisible: false,
           textStyle: TextStyle(
-              fontSize: 12, color: Colors.white, fontWeight: FontWeight.w600)),
+              fontSize: 12, color: Colors.black, fontWeight: FontWeight.w600)),
     );
   }
 
   /// Creates a list of chart data
   static List<ChartData> _createChartData() {
     return [
-      ChartData('Construction', 12.6, const Color.fromARGB(255, 19, 6, 202)),
+      ChartData('Construction', 12.6, const Color.fromARGB(255, 231, 139, 1)),
       ChartData('Manufacturing', 11.6, const Color.fromARGB(255, 199, 3, 163)),
       ChartData('Agriculture', 45.5, const Color.fromARGB(255, 28, 178, 1)),
       ChartData('Restaurant', 12.1, const Color.fromARGB(255, 0, 156, 228)),
-      ChartData('Transport', 5.6, const Color.fromRGBO(255, 189, 57, 1)),
+      ChartData('Transport', 5.6, const Color.fromARGB(255, 244, 232, 1)),
     ];
   }
 }
