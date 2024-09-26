@@ -33,7 +33,7 @@ class _SemiDoughnutVisualizationState extends State<SemiDoughnutVisualization> {
   void initState() {
     super.initState();
     _semiDoughnutChartData = _createSemiDoughnutChartData();
-    _largestSectorLabel = _getLargestSectorLabel();
+    _largestSectorLabel = _buildLargestSectorLabel();
   }
 
   @override
@@ -57,7 +57,7 @@ class _SemiDoughnutVisualizationState extends State<SemiDoughnutVisualization> {
     );
   }
 
-  String _getLargestSectorLabel() {
+  String _buildLargestSectorLabel() {
     final largestSector = _semiDoughnutChartData.reduce(
       (current, next) => current.y > next.y ? current : next,
     );
@@ -76,7 +76,7 @@ class _SemiDoughnutVisualizationState extends State<SemiDoughnutVisualization> {
           const Color.fromARGB(255, 199, 3, 163)),
       _buildIconAnnotation(-167, Icons.construction_outlined,
           const Color.fromARGB(255, 249, 87, 38)),
-      _buildTextAnnotation()
+      _buildCenterTextAnnotation()
     ];
   }
 
@@ -99,7 +99,7 @@ class _SemiDoughnutVisualizationState extends State<SemiDoughnutVisualization> {
     );
   }
 
-  CircularChartAnnotation _buildTextAnnotation() {
+  CircularChartAnnotation _buildCenterTextAnnotation() {
     return CircularChartAnnotation(
       widget: Center(
         child: SizedBox(
@@ -118,7 +118,7 @@ class _SemiDoughnutVisualizationState extends State<SemiDoughnutVisualization> {
                     ),
               ),
               Text(
-                "Distribution of workers in India across broad industries ",
+                'Distribution of workers in India across broad industries',
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.titleSmall!.copyWith(
                       color: Colors.black,

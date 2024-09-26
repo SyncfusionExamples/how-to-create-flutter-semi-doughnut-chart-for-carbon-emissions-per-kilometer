@@ -1,8 +1,6 @@
-# visualize-sector-by-employment-using-Flutter-charts
+# Creating a Flutter Semi-Doughnut Chart for Visualizing India's Employment Sectors
 
 This repository contains a sample to create visualize sector by employment using Flutter charts [Syncfusion Flutter Circular Chart](https://help.syncfusion.com/flutter/circular-charts/chart-types/doughnut-chart) widget.
-
-Please refer the Blog through this [link]().
 
 ## Syncfusion widgets:
 
