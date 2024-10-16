@@ -13,7 +13,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final List<SemiDoughnutChartData> _semiDoughnutsemiDoughnutChartData = [
+  final List<SemiDoughnutChartData> _semiDoughnutChartData = [
     SemiDoughnutChartData(
         'bus', 97, Icons.directions_bus_outlined, const Color(0xff88D4AB)),
     SemiDoughnutChartData('flight', 246, Icons.flight, const Color(0xff67B99A)),
@@ -50,7 +50,7 @@ class _MyAppState extends State<MyApp> {
                 strokeColor: Colors.white,
                 strokeWidth: 3,
                 explode: true,
-                dataSource: _semiDoughnutsemiDoughnutChartData,
+                dataSource: _semiDoughnutChartData,
                 xValueMapper: (SemiDoughnutChartData data, int index) => data.x,
                 yValueMapper: (SemiDoughnutChartData data, int index) => data.y,
                 pointColorMapper: (SemiDoughnutChartData data, int index) =>
@@ -100,7 +100,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   String _buildLargestSectorLabel() {
-    final largestSector = _semiDoughnutsemiDoughnutChartData.reduce(
+    final largestSector = _semiDoughnutChartData.reduce(
       (current, next) => current.y > next.y ? current : next,
     );
     return largestSector.x;
