@@ -13,16 +13,16 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final List<SemiDoughnutChartData> _semiDoughnutChartData = [
-    SemiDoughnutChartData(
-        'bus', 97, Icons.directions_bus_outlined, const Color(0xff036666)),
-    SemiDoughnutChartData('flight', 246, Icons.flight, const Color(0xff248277)),
-    SemiDoughnutChartData(
-        'motorbike', 114, Icons.pedal_bike_outlined, const Color(0xff469D89)),
-    SemiDoughnutChartData('electric car', 47,
-        Icons.directions_car_filled_outlined, const Color(0xff67B99A)),
-    SemiDoughnutChartData('national rail', 35,
-        Icons.directions_railway_filled_sharp, const Color(0xff88D4AB)),
+  final List<CarbonEmission> carbonEmission = [
+    CarbonEmission(
+        'Bus', 97, Icons.directions_bus_outlined, const Color(0xff036666)),
+    CarbonEmission('Flight', 246, Icons.flight, const Color(0xff248277)),
+    CarbonEmission(
+        'Motorbike', 114, Icons.pedal_bike_outlined, const Color(0xff469D89)),
+    CarbonEmission('Electric car', 47, Icons.directions_car_filled_outlined,
+        const Color(0xff67B99A)),
+    CarbonEmission('National rail', 35, Icons.directions_railway_filled_sharp,
+        const Color(0xff88D4AB)),
   ];
 
   late String _largestSectorLabel;
@@ -43,17 +43,17 @@ class _MyAppState extends State<MyApp> {
           child: SfCircularChart(
             annotations: [_buildCenterTextAnnotation()],
             series: <CircularSeries>[
-              DoughnutSeries<SemiDoughnutChartData, String>(
+              DoughnutSeries<CarbonEmission, String>(
                 radius: '60%',
                 startAngle: 270,
                 endAngle: 90,
                 strokeColor: Colors.white,
                 strokeWidth: 3,
                 explode: true,
-                dataSource: _semiDoughnutChartData,
-                xValueMapper: (SemiDoughnutChartData data, int index) => data.x,
-                yValueMapper: (SemiDoughnutChartData data, int index) => data.y,
-                pointColorMapper: (SemiDoughnutChartData data, int index) =>
+                dataSource: carbonEmission,
+                xValueMapper: (CarbonEmission data, int index) => data.x,
+                yValueMapper: (CarbonEmission data, int index) => data.y,
+                pointColorMapper: (CarbonEmission data, int index) =>
                     data.color,
                 dataLabelSettings: DataLabelSettings(
                   isVisible: true,
@@ -69,7 +69,6 @@ class _MyAppState extends State<MyApp> {
                           decoration: BoxDecoration(
                             color: data.color,
                             shape: BoxShape.circle,
-                            border: Border.all(color: Colors.white, width: 2),
                           ),
                           child: Icon(
                             data.icon,
@@ -100,7 +99,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   String _buildLargestSectorLabel() {
-    final largestSector = _semiDoughnutChartData.reduce(
+    final largestSector = carbonEmission.reduce(
       (current, next) => current.y > next.y ? current : next,
     );
     return largestSector.x;
@@ -135,8 +134,8 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-class SemiDoughnutChartData {
-  SemiDoughnutChartData(this.x, this.y, this.icon, this.color);
+class CarbonEmission {
+  CarbonEmission(this.x, this.y, this.icon, this.color);
   final String x;
   final double y;
   final IconData icon;
