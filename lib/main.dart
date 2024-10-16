@@ -15,14 +15,14 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final List<SemiDoughnutChartData> _semiDoughnutChartData = [
     SemiDoughnutChartData(
-        'bus', 97, Icons.directions_bus_outlined, const Color(0xff88D4AB)),
-    SemiDoughnutChartData('flight', 246, Icons.flight, const Color(0xff67B99A)),
+        'bus', 97, Icons.directions_bus_outlined, const Color(0xff036666)),
+    SemiDoughnutChartData('flight', 246, Icons.flight, const Color(0xff248277)),
     SemiDoughnutChartData(
         'motorbike', 114, Icons.pedal_bike_outlined, const Color(0xff469D89)),
     SemiDoughnutChartData('electric car', 47,
-        Icons.directions_car_filled_outlined, const Color(0xff248277)),
+        Icons.directions_car_filled_outlined, const Color(0xff67B99A)),
     SemiDoughnutChartData('national rail', 35,
-        Icons.directions_railway_filled_sharp, const Color(0xff036666)),
+        Icons.directions_railway_filled_sharp, const Color(0xff88D4AB)),
   ];
 
   late String _largestSectorLabel;
