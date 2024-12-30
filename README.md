@@ -2,6 +2,8 @@
 
 This repository contains a sample to create a flutter semi-doughnut chart for visualizing carbon emissions per kilometer travelled using [Syncfusion Flutter Circular Chart](https://help.syncfusion.com/flutter/circular-charts/chart-types/doughnut-chart) widget.
 
+Please refer to the blog through this [flutter-semi-doughnut-chart-transport-emissions](https://www.syncfusion.com/blogs/post/flutter-semi-doughnut-chart-emissions).
+
 ## Syncfusion widgets:
 
 This project used the following Syncfusion widget(s):
